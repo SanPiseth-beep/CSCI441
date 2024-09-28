@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
 
-// Create a new Sequelize instance, adjust the values for your DB configuration
-const sequelize = new Sequelize('your_database_name', 'your_username', 'your_password', {
+const sequelize = new Sequelize('database_name', 'username', 'password', {
   host: 'localhost',
-  dialect: 'mysql',  // Use 'postgres', 'sqlite', or 'mssql' for other databases
+  dialect: 'mysql', // or 'postgres', 'sqlite', 'mssql'
 });
 
 module.exports = sequelize;
+
