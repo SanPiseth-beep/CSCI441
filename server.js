@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const sequelize = require('./config/database');
+// const sequelize = require('./config/database'); // comment out becuase we not curently using sequelize (SQL database)
 const app = express();
 const port = 3000;
 
@@ -19,6 +19,7 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+// comment out becuase we not curently using sequelize (SQL database)
 // // Start the server
 // app.listen(port, () => {
 //   console.log(`Server running on http://localhost:${port}`);
