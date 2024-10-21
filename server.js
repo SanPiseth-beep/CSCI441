@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 const routes = require('./routes');
 app.use('/', routes);
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
