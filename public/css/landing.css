@@ -5,24 +5,14 @@
     min-height: 200px; /* Adjust height as needed */
 }
 .top-background {
-    background-image: url('/images/bg1.png');
+    background-image: url('/pic/bike2.webp');
 }
 .bottom-background {
-    background-image: url('/images/bg2.png');
+    background-image: url('/pic/bike1.webp');
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     padding: 10px;
     margin: 20px auto;
     width: 90%;
     box-sizing: border-box;
-}
-/* General text and button colors */
-body {
-    background-color: #FAF9F6;
-}
-h4 {
-    color: #57CC99;
-}
-p {
-    color: #57CC99;
 }
