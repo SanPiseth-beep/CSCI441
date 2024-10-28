@@ -1,0 +1,18 @@
+.top-background, .bottom-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 200px; /* Adjust height as needed */
+}
+.top-background {
+    background-image: url('/pic/bg1.webp');
+}
+.bottom-background {
+    background-image: url('/pic/bg2.png');
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px auto;
+    width: 90%;
+    box-sizing: border-box;
+}

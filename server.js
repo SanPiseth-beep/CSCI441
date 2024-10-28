@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./config/database');
+// const sequelize = require('./config/database'); // comment out becuase we not curently using sequelize (SQL database)
 const app = express();
 const port = 3000;
 const keycloak = require('./config/keycloak');
@@ -18,12 +18,19 @@ const routes = require('./routes');
 app.use('/', routes);
 app.use('/home', routes)
 
-// Start the server
+app.use(express.static(__dirname + '/public'));
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
-// Sync database and start server
+// comment out becuase we not curently using sequelize (SQL database)
+// // Start the server
+// app.listen(port, () => {
+//   console.log(`Server running on http://localhost:${port}`);
+// });
+
+// // Sync database and start server
 // sequelize.sync().then(() => {
 //     app.listen(port, () => {
 //       console.log(`Server running on http://localhost:${port}`);
@@ -32,4 +39,3 @@ app.listen(port, () => {
 //   }).catch(err => {
 //     console.error('Unable to sync the database:', err);
 //   });
-

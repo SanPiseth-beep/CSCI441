@@ -1,4 +1,4 @@
 exports.index = (req, res) => {
-    res.render('index', { title: 'Home Page', message: 'Welcome to the MVC App!' });
+    res.render('index', {title: 'Homepage', message: 'Welcome to the homepage!'});
   };
   
