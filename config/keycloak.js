@@ -7,9 +7,7 @@ const authConfig = {
     "auth-server-url": `${process.env.KEYCLOAK_URL}`,
     "ssl-required": "external",
     "resource": process.env.KEYCLOAK_CLIENT,
-    // "redirect_uri": `${process.env.KEYCLOAK_REDIRECT}`,
-    // "client-id": process.env.KEYCLOAK_CLIENT,
-    // "bearer-only": true
+    "bearer-only": false
 }
 
 module.exports = new Keycloak({}, authConfig);

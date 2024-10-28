@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 // Routes
 const routes = require('./routes');
 app.use('/', routes);
-// app.use('/home', routes)
+app.use('/home', routes)
 
 // Start the server
 app.listen(port, () => {
