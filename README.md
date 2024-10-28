@@ -20,7 +20,16 @@ Nillin Lay
 Ndeye Anta Mbaye
 Pisteh San
 
-# git pull, push and merge commands
+# Project Description
+
+The project is a bike rental system that allows users to rent bikes for a certain period of time. The system will have the following features:
+
+- User registration and login
+- Bike rental
+- Bike return
+- Payment processing
+
+# Git Commands
 
 ## git pull
 ```
@@ -73,4 +82,10 @@ npm run dev
 ```
 
 ***important:*** you may need to npm everytime there is a completed feature branch that is ready to be merged to the main branch.
+
+# Docker instructions
+
+docker instructions will be added later.
+
+
 
