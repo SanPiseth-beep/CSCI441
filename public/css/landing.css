@@ -5,10 +5,10 @@
     min-height: 200px; /* Adjust height as needed */
 }
 .top-background {
-    background-image: url('/pic/bike2.webp');
+    background-image: url('/pic/bg1.webp');
 }
 .bottom-background {
-    background-image: url('/pic/bike1.webp');
+    background-image: url('/pic/bg2.png');
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     padding: 10px;
