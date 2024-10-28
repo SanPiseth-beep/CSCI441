@@ -31,6 +31,8 @@ The project is a bike rental system that allows users to rent bikes for a certai
 
 # Git Commands
 
+This section will provide you with the basic git commands that you will need to use to work on the project.
+
 ## git pull
 ```
 git checkout main
