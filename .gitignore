@@ -3,5 +3,6 @@ package-lock.json
 .env
 
 node_modules/
-config/docker/
+config/docker/keycloak.yml
+config/docker/realm-config/realm-settings.json
 config/keycloak-themes/
