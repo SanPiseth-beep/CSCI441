@@ -16,7 +16,8 @@ app.set('view engine', 'ejs');
 // Routes
 const routes = require('./routes');
 app.use('/', routes);
-app.use('/home', routes)
+app.use('/login', routes);
+app.use('/register', routes);
 
 app.use(express.static(__dirname + '/public'));
 
