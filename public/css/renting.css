@@ -1,0 +1,16 @@
+.inputN {
+    border: 1px solid #808080;
+    border-radius: 4px; 
+    padding-right : 10px;
+}
+
+input.validate {
+    border-bottom: none !important;
+}
+
+.dropdown:hover, .dropdown:focus{
+    background-color: #525050;
+}
+
+
+
