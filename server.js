@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 // const sequelize = require('./config/database'); // comment out becuase we not curently using sequelize (SQL database)
 const app = express();
 const port = 3000;
+const keycloak = require('./config/keycloak');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(keycloak.middleware());
 
 // View engine setup (optional, e.g., using EJS)
 app.set('view engine', 'ejs');
@@ -14,6 +16,8 @@ app.set('view engine', 'ejs');
 // Routes
 const routes = require('./routes');
 app.use('/', routes);
+app.use('/login', routes);
+app.use('/register', routes);
 
 app.use(express.static(__dirname + '/public'));
 

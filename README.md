@@ -87,7 +87,19 @@ npm run dev
 
 # Docker instructions
 
-docker instructions will be added later.
+To enable the Keycloak authentication, first install Keycloak-connect by running the following command:
+```
+npm install keycloak-connect
+```
+You also need to make sure you have the following files and directories in the appropriate locations:
+- **keycloak.yml** in config/docker
+- **realm-settings.json** in config/docker/realm-config
+- **keycloak-themes/** in the config directory
+
+Then, you need to run the following command to start the Docker container:
+```
+docker-compose -f config/docker/keycloak.yml up
+```
 
 
 
