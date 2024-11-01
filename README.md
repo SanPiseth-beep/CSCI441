@@ -87,6 +87,8 @@ npm run dev
 
 # Docker instructions
 
+To run the project using Docker, you will need to have Docker installed on your machine.
+
 To enable the Keycloak authentication, first install Keycloak-connect by running the following command:
 ```
 npm install keycloak-connect
@@ -100,6 +102,8 @@ Then, you need to run the following command to start the Docker container:
 ```
 docker-compose -f config/docker/keycloak.yml up
 ```
+
+The admin console for Keycloak can be accessed at http://localhost:9080
 
 
 
