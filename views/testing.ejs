@@ -1,0 +1,59 @@
+<!-- views/testing.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent a Bike</title>
+  <link rel="stylesheet" href="/css/materialize.min.css">
+</head>
+<body>
+  <header>
+    <%- include('template.ejs'); %>
+  </header>
+  <main class="container">
+    <h3>Rent a Bike</h3>
+    <div class="input-field">
+      <select id="stations-dropdown">
+        <option value="" disabled selected>Choose your station</option>
+      </select>
+      <label>Stations</label>
+    </div>
+    <div class="input-field">
+      <input id="bike-id" type="text" placeholder="Enter Bike ID">
+      <label for="bike-id">Bike ID</label>
+    </div>
+    <div id="rent-form" style="display: none;">
+      <h4>Rent Bike</h4>
+      <form id="rent-bike-form">
+        <div class="input-field">
+          <input id="user-id" type="text" placeholder="User ID">
+        </div>
+        <div class="input-field">
+          <input id="destination" type="text" placeholder="Destination">
+        </div>
+        <div class="input-field">
+          <input id="phone-number" type="text" placeholder="Phone Number">
+        </div>
+        <div class="input-field">
+          <input id="card-number" type="text" placeholder="Card Number">
+        </div>
+        <div class="input-field">
+          <input id="card-expiry" type="text" placeholder="Card Expiry">
+        </div>
+        <div class="input-field">
+          <input id="card-cvc" type="text" placeholder="Card CVC">
+        </div>
+        <button type="submit" class="btn">Rent Bike</button>
+      </form>
+    </div>
+  </main>
+  <script src="/js/rent.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
+</body>
+</html>

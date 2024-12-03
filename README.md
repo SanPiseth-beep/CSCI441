@@ -105,5 +105,16 @@ docker-compose -f config/docker/keycloak.yml up
 
 The admin console for Keycloak can be accessed at http://localhost:9080
 
+# Database instructions
+
+To run the project using a database, you will need to have MySQL installed on your machine (xampp phpmyadmin will also work).
+
+then import the demo.sql file to your database.
+
+### Database connection
+
+To connect to the database, you will be given a .env file upon request. This file contains the database connection information.
+
+
 
 
