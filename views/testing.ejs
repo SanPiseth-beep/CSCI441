@@ -1,0 +1,43 @@
+<!-- views/rent.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent a Bike</title>
+  <link rel="stylesheet" href="/css/materialize.min.css">
+</head>
+<body>
+  <header>
+    <%- include('template.ejs'); %>
+  </header>
+  <main class="container">
+    <h3>Rent a Bike</h3>
+    <div id="stations"></div>
+    <div id="bikes"></div>
+    <div id="rent-form" style="display: none;">
+      <h4>Rent Bike</h4>
+      <form id="rent-bike-form">
+        <input type="hidden" id="bike-id">
+        <div class="input-field">
+          <input id="user-id" type="text" placeholder="User ID">
+        </div>
+        <div class="input-field">
+          <input id="card-number" type="text" placeholder="Card Number">
+        </div>
+        <div class="input-field">
+          <input id="card-expiry" type="text" placeholder="Card Expiry">
+        </div>
+        <div class="input-field">
+          <input id="card-cvc" type="text" placeholder="Card CVC">
+        </div>
+        <div class="input-field">
+          <input id="amount" type="text" placeholder="Amount">
+        </div>
+        <button type="submit" class="btn">Rent Bike</button>
+      </form>
+    </div>
+  </main>
+  <script src="/js/rent.js"></script>
+</body>
+</html>
