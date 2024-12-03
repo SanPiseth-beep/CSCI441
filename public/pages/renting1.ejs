@@ -23,29 +23,55 @@
 
         <div>
             <form id="rent-form">
+
+                <div class="card row" 
+                style="border-top-left-radius: 10px; 
+                border-top-right-radius: 10px;
+                margin-bottom: 0;
+                background-color: #243742;">
+                        <div class=" col s12 card-content white-text">
+                            <span style="font-size:medium ;">Stations<span>
+                            <i class="material-icons right dropdown" style="color: #57CC99" onclick="stationDrop()">arrow_drop_down</i>
+                        </div>
+                </div>
+                <div id="stnDrop" class="row station-dropdown">
+                    <div class="card-panel col s12 valign-wrapper" style="margin: 0; height: 50px;">
+                        <a class="drop-content">
+                            <label><input type="radio" name="station" class="with-gap"  /> <span>Station 1</span></label>
+                        </a>
+                    </div>
+                    <div class="card-panel col s12 valign-wrapper" style="margin: 0; height: 50px; border-bottom-left-radius:10px; border-bottom-right-radius: 10px;">
+                        <a class=" drop-content ">
+                            <label><input type="radio" name="station" class="with-gap"  /> <span>Station 2</span></label>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Destination -->
                 <div class="destination row">
                     <div class="input-field inputN col s12">
                         <i class="material-icons prefix">location_on</i>
                         <input placeholder="Enter Your Destination" id="destination" type="text" class="validate">
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="station-id" type="text" class="validate" placeholder="Station ID">
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="user-id" type="text" class="validate" placeholder="User ID">
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="card-number" type="text" class="validate" placeholder="Card Number">
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="card-expiry" type="text" class="validate" placeholder="Card Expiry">
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="card-cvc" type="text" class="validate" placeholder="Card CVC">
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field inputN col s12">
                         <input id="amount" type="text" class="validate" placeholder="Amount">
                     </div>
                 </div>
