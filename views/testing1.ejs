@@ -1,0 +1,45 @@
+<!-- views/returnBike.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Return a Bike</title>
+  <link rel="stylesheet" href="/css/materialize.min.css">
+</head>
+<body>
+  <header>
+    <%- include('template.ejs'); %>
+  </header>
+  <main class="container">
+    <h3>Return a Bike</h3>
+    <div class="input-field">
+      <select id="stations-dropdown">
+        <option value="" disabled selected>Choose your station</option>
+      </select>
+      <label>Stations</label>
+    </div>
+    <div id="return-form">
+      <h4>Return Bike</h4>
+      <form id="return-bike-form">
+        <div class="input-field">
+          <input id="bike-id" type="text" placeholder="Enter Bike ID">
+          <label for="bike-id">Bike ID</label>
+        </div>
+        <div class="input-field">
+          <input id="user-id" type="text" placeholder="Enter User ID">
+          <label for="user-id">User ID</label>
+        </div>
+        <button type="submit" class="btn">Return Bike</button>
+      </form>
+    </div>
+  </main>
+  <script src="/js/return.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
+</body>
+</html>

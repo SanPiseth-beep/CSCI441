@@ -11,6 +11,10 @@ const Payment = sequelize.define('Payment', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  payDate: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
   cardNumber: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -25,7 +29,7 @@ const Payment = sequelize.define('Payment', {
   },
   amount: {
     type: DataTypes.FLOAT,
-    allowNull: false,
+    allowNull: true,
   },
 });
 

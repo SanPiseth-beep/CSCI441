@@ -11,6 +11,10 @@ const Bike = sequelize.define('Bikes', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   isAvailable: {
     type: DataTypes.BOOLEAN,
     defaultValue: true,

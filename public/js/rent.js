@@ -33,8 +33,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
       // Re-initialize the select element to update the options
       M.FormSelect.init(stationsDropdown);
-
-      stationsDropdown.addEventListener('change', checkSelections);
     } else {
       console.error('Stations or bikes data is missing');
     }
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     const cardNumber = document.getElementById('card-number').value;
     const cardExpiry = document.getElementById('card-expiry').value;
     const cardCVC = document.getElementById('card-cvc').value;
-    const amount = document.getElementById('amount').value;
     const destination = document.getElementById('destination').value;
     const phoneNumber = document.getElementById('phone-number').value;
 
@@ -59,12 +56,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ bikeId, userId, cardNumber, cardExpiry, cardCVC, amount, destination, phoneNumber }),
+        body: JSON.stringify({ bikeId, userId, cardNumber, cardExpiry, cardCVC, destination, phoneNumber }),
       });
 
       const result = await response.json();
       if (response.ok) {
         alert('Bike rented successfully!');
+        window.location.href = '/testing1'; // Redirect to the testing1 page
       } else {
         alert(result.message);
       }

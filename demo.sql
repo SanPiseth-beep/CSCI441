@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 06:39 AM
+-- Generation Time: Dec 03, 2024 at 07:28 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,12 +58,12 @@ CREATE TABLE `bikes` (
 INSERT INTO `bikes` (`bikeID`, `stationID`, `model`, `status`, `isAvailable`, `createdAt`, `updatedAt`) VALUES
 (0, 0, 'model', 'status', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (1, 5, 'Model_D12', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
-(2, 6, 'Model_B7', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-03 05:36:35'),
+(2, 2, 'Model_B7', 'Available', 1, '2024-12-02 22:15:21', '2024-12-03 06:25:26'),
 (3, 3, 'Model_C16', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (4, 1, 'Model_D55', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (5, 4, 'Model_B97', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (6, 9, 'Model_D78', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
-(7, 8, 'Model_B53', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(7, 0, 'Model_B53', 'Available', 1, '2024-12-02 22:15:21', '2024-12-03 06:24:38'),
 (8, 3, 'Model_B44', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (9, 9, 'Model_A54', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (10, 9, 'Model_B72', 'Available', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
@@ -79,7 +79,7 @@ INSERT INTO `bikes` (`bikeID`, `stationID`, `model`, `status`, `isAvailable`, `c
 (20, 6, 'Model_A99', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (21, 9, 'Model_C15', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (22, 4, 'Model_C67', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
-(23, 1, 'Model_A15', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(23, 0, 'Model_A15', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-03 06:01:13'),
 (24, 5, 'Model_D93', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (25, 3, 'Model_C64', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (26, 5, 'Model_B18', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
@@ -87,21 +87,6 @@ INSERT INTO `bikes` (`bikeID`, `stationID`, `model`, `status`, `isAvailable`, `c
 (28, 9, 'Model_C43', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (29, 9, 'Model_B68', 'Available', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
 (30, 4, 'Model_D76', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `feedback`
---
-
-CREATE TABLE `feedback` (
-  `feedbackID` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
-  `bikeID` int(11) DEFAULT NULL,
-  `rentID` int(11) DEFAULT NULL,
-  `rating` int(11) DEFAULT NULL,
-  `comment` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -126,10 +111,8 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`paymentID`, `userID`, `amount`, `payDate`, `cardNumber`, `cardExpiry`, `cardCVC`, `createdAt`, `updatedAt`) VALUES
-(1, 1, 123.00, NULL, '5a4c5a5a6f6ad4563fbea4787f984f9b', '4af0346b99fa84ca06a22d20c3c15a1dad6878ca35f9ab3010dc9c098db22def', '650e1ad856248824a46b9982b6715c71', '2024-12-03 05:24:28', '2024-12-03 05:24:28'),
-(2, 1, 123.00, NULL, '4f0e774a95d8ecb454b0ed4884eb07c3', 'a14218c89294121e54491f7f645e13b3218be41857bd53193d9b2b0cb5951939', '502d8dcde5cc69ce941b774920a45060', '2024-12-03 05:31:43', '2024-12-03 05:31:43'),
-(3, 1, 123.00, NULL, '2014cfbdfe6dcb20601e48c2e6bf0bb9', 'e8fcb419d805af019f20fc6e55f425e81dfdc9775c979e59dc3a29e5769ed78b', 'b336a6f349f80827d360d424900b6965', '2024-12-03 05:32:32', '2024-12-03 05:32:32'),
-(4, 1, 123.00, NULL, 'ca749857510e52fd8c7237dd43afb635', 'a4dc97263257624f876efdb6ff331afbfa9bc6529a4b3fb005e340826fc430df', '780e3735cc5f312fe4a1ba07bd3fb307', '2024-12-03 05:36:35', '2024-12-03 05:36:35');
+(7, 2, 0.38, '2024-12-03', 'bc8453ecdb0931acee18fd43f42b8782', '01c3b6cf336c2c399433e11b3e974a7b', '4150c4db46a1bbba95c2b2c213f2d5a6', '2024-12-03 06:14:02', '2024-12-03 06:25:26'),
+(8, 1, 0.08, '2024-12-03', 'ad992f306a2a6d509eaaed19f47f2ee8', '03eb92e61b506e772fd6e268e6aebd56', 'c060577d8b64d51d19c45899014042ba', '2024-12-03 06:22:15', '2024-12-03 06:24:38');
 
 -- --------------------------------------------------------
 
@@ -156,7 +139,8 @@ CREATE TABLE `rents` (
 --
 
 INSERT INTO `rents` (`rentalID`, `userID`, `bikeID`, `status`, `startTime`, `endTime`, `cost`, `destination`, `phoneNumber`, `createdAt`, `updatedAt`) VALUES
-(0, 1, 2, 'rented', '2024-12-03 05:36:35', NULL, NULL, '1', 'home', '2024-12-03 05:36:35', '2024-12-03 05:36:35');
+(3, 2, 2, 'returned', '2024-12-03 06:14:02', '2024-12-03 06:25:26', 0.00, 'home', '1111111111', '2024-12-03 06:14:02', '2024-12-03 06:25:26'),
+(4, 1, 7, 'returned', '2024-12-03 06:22:15', '2024-12-03 06:24:38', 0.00, 'home', '000000000', '2024-12-03 06:22:15', '2024-12-03 06:24:38');
 
 --
 -- Triggers `rents`
@@ -165,15 +149,6 @@ DELIMITER $$
 CREATE TRIGGER `before_insert_trigger_name` BEFORE INSERT ON `rents` FOR EACH ROW BEGIN
     -- Set startTime to the current datetime
     SET NEW.startTime = NOW();
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `before_update_trigger_name` BEFORE UPDATE ON `rents` FOR EACH ROW BEGIN
-    -- Calculate cost if endTime is not NULL
-    IF NEW.endTime IS NOT NULL THEN
-        SET NEW.cost = TIMESTAMPDIFF(HOUR, NEW.startTime, NEW.endTime) * 2;
-    END IF;
 END
 $$
 DELIMITER ;
@@ -229,7 +204,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `firstName`, `lastName`, `phoneNo`, `email`, `password`) VALUES
-(1, 'John', 'Tester', '0000000000', 'johnTester@mail.com', '123456');
+(1, 'John', 'Tester', '0000000000', 'johnTester@mail.com', '123456'),
+(2, 'Jane', 'Tester', '1111111111', 'janeTester@mail.com', '1234567889');
 
 --
 -- Indexes for dumped tables
@@ -247,15 +223,6 @@ ALTER TABLE `administrator`
 ALTER TABLE `bikes`
   ADD PRIMARY KEY (`bikeID`),
   ADD KEY `stationID` (`stationID`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`feedbackID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `bikeID` (`bikeID`),
-  ADD KEY `rentID` (`rentID`);
 
 --
 -- Indexes for table `payments`
@@ -292,7 +259,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `rents`
+--
+ALTER TABLE `rents`
+  MODIFY `rentalID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -303,14 +276,6 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `bikes`
   ADD CONSTRAINT `bikes_ibfk_1` FOREIGN KEY (`stationID`) REFERENCES `stations` (`stationID`);
-
---
--- Constraints for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
-  ADD CONSTRAINT `feedback_ibfk_2` FOREIGN KEY (`bikeID`) REFERENCES `bikes` (`bikeID`),
-  ADD CONSTRAINT `feedback_ibfk_3` FOREIGN KEY (`rentID`) REFERENCES `rents` (`rentalID`);
 
 --
 -- Constraints for table `payments`

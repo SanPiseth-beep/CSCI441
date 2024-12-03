@@ -25,7 +25,15 @@ router.get('/testing', (req, res) => {
     res.render('testing');
 });
 
+// Add the route to render the testing1.ejs template
+router.get('/testing1', (req, res) => {
+    res.render('testing1');
+});
+
 router.get('/api/stations-and-bikes', rentController.getAvailableStationsAndBikes);
-router.post('/api/rent-bike', rentController.rentBike); // Ensure this line is correct
+
+router.post('/api/rent-bike', rentController.rentBike);
+router.post('/api/return-bike', rentController.returnBike);
+
 
 module.exports = router;
