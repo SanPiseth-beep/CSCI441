@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', async function() {
   const stationsDropdown = document.getElementById('stations-dropdown');
   const rentForm = document.getElementById('rent-form');
   const rentBikeForm = document.getElementById('rent-bike-form');
+  const bikeIdInput = document.getElementById('bike-id');
 
   function checkSelections() {
-    if (stationsDropdown.value) {
+    const bikeId = bikeIdInput.value;
+    const stationId = stationsDropdown.value;
+    if (bikeId && stationId) {
       rentForm.style.display = 'block';
     } else {
       rentForm.style.display = 'none';
@@ -40,9 +43,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.error('Error fetching stations and bikes:', error);
   }
 
+  stationsDropdown.addEventListener('change', checkSelections);
+  bikeIdInput.addEventListener('input', checkSelections);
+
   rentBikeForm.addEventListener('submit', async function(event) {
     event.preventDefault();
-    const bikeId = document.getElementById('bike-id').value;
+    const bikeId = bikeIdInput.value;
     const userId = document.getElementById('user-id').value;
     const cardNumber = document.getElementById('card-number').value;
     const cardExpiry = document.getElementById('card-expiry').value;
