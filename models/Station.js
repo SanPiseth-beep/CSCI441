@@ -17,8 +17,8 @@ const Station = sequelize.define('Stations', {
     allowNull: false,
   },
 }, {
-  tableName: 'stations', // Ensure the table name matches the actual table name in the database
-  timestamps: false, // Disable the timestamps option
+  tableName: 'stations',
+  timestamps: false,
 });
 
 module.exports = Station;

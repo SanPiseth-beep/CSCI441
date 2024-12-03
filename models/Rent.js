@@ -37,8 +37,8 @@ const Rent = sequelize.define('Rent', {
     type: DataTypes.STRING,
   },
 }, {
-  tableName: 'rents', // Ensure the table name matches the actual table name in the database
-  timestamps: false, // Disable the timestamps option
+  tableName: 'rents', 
+  timestamps: false,
 });
 
 module.exports = Rent;
