@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <!-- Import our custom css-->
+    <link rel="stylesheet" href="../css/renting.css">
+
+    <title>Renting2</title>
+</head>
+
+<body>
+    <header>
+        <%- include('template.ejs'); %>
+    </header>
+    <main class="container">
+        <!-- Trip summary -->
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card" style="background-color: #F3F9F4; border-radius: 12px;">
+                    <div class="card-content">
+                        <span class="card-title">Trip Summary</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="../pic/userinfo.png">
+                    </div>
+                    <div class="card-content">
+                        <h6>Destination:</h6>
+                        <p>Rate: $2/Hour</p>
+                        <p>Deposit: $2</p>
+                        <br>
+                        <p>Name: </p>
+                        <p>Bike ID: </p>
+                        <p>Duration:</p>
+                        <p>Phone:</p>
+                        <h6>Subtotal:</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promocode -->
+        <form>
+            <div class="promo row">
+                <div class="input-field inputN col s12">
+                    <i class="material-icons prefix grey-text lighten-3" style="transform: rotate(-45deg);">confirmation_number</i>
+                    <input placeholder="Promo Code" id="promo" type="text">
+                </div>
+            </div>
+
+            <!-- Wallet -->
+            <div class="wallet">
+                <div class="wallet_choice">
+                    <div class="saved row">
+                        <a class="choice col s12">
+                            <label>
+                                <input type="radio" name="method" class="with-gap" id="saved-wallet"/>
+                                <span style="color: #243742;">Use your saved wallet</span>
+                            </label>
+                        </a>
+                    </div>
+                    <div class="new row">
+                        <a class="choice col s12">
+                            <label class=" valign-wrapper">
+                                <input type="radio" name="method" class="with-gap" id="new-wallet"/>
+                                <span style="color: #243742;" class="col s1">
+                                </span>
+                                <span class="card valign-wrapper col s11" style=" color:#243742; background-color: #F3F9F4; border-radius: 12px; padding: 10px">
+                                    <i class="material-icons prefix" style="color:#57CC99; padding-right: 10px;">credit_card</i>
+                                    <span>
+                                        <p>Credit or Debit card</p>
+                                        <p class="grey-text lighten-3">Visa or Master</p>
+                                    </span>
+                                </span>
+                            </label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- place holder for card choice-->
+            <div id="cards-container" style="margin-top: 12px;">
+                <div class="add-card row">
+                    <div class="input-field inputN col s12">
+                        <input placeholder="Card Number" id="saved-card" type="number"/>
+                        <label for="saved-card">Card Number</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8">
+                        <div class="input-field col s6">
+                            <select id="month-select inputN">
+                                <option value="" disabled selected>Month</option>
+                                <!-- options dynamically added later -->
+                            </select>
+                            <label for="month-select">Month</label>
+                        </div>
+                        <div class="input-field inputN col s6">
+                                <input id="year-input" type="number" min="1900" max="2100" placeholder="Enter Year" />
+                                <label for="year-input">Year</label>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
+
+        </form>
+        <!-- placeholder for buttons -->
+        <div class="row">
+            <div class="col s12 center-align" style="padding: 0 0;">
+                <a class="waves-effect waves-light btn" 
+                style="background-color: #57CC99; color: #243742; width: 100%;"
+                id="cont-btn">
+                Continue</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align" style="padding: 0 0;">
+                <a class="waves-effect waves-light btn" 
+                style="background-color: #FFFFFF; color: #243742; width: 100%;">
+                Cancel</a>
+            </div>
+        </div>
+    </main>
+    <!-- materialize js -->
+    <script src="../js/materialize.min.js"></script>
+    <!-- UI js -->
+    <script src="../js/ui.js"></script>
+    <!-- script for renting -->
+     <script src="../js/renting.js"></script>
+</body>
+
+</html>

@@ -10,4 +10,9 @@ exports.homepage1 = (req, res) => {
 exports.renting1 = (req, res) => {
   res.render('../public/pages/renting1');
 };
+
+exports.renting2 = (req, res) => {
+  res.render('../public/pages/renting2');
+};
+  
   

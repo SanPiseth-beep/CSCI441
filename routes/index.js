@@ -15,6 +15,7 @@ router.get('/register', (req, res) => {
 
 router.get('/homepage', homeController.index);
 router.get('/renting1', homeController.renting1);
+router.get('/renting2', homeController.renting2);
 
 router.get('/homepage1', homeController.homepage1);
 

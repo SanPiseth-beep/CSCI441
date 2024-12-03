@@ -15,34 +15,8 @@
 <body>
 
 <header>
-    <!-- Navbar for larger screens -->
-    <nav class="z-depth-0">
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">Logo</a>
-            <!-- Hamburger Menu for small screens -->
-            <a href="#" data-target="mobile-menu" class="sidenav-trigger left hide-on-med-and-up black-text">
-                <i class="material-icons">menu</i>
-            </a>
-            <!-- Navbar Links for larger screens -->
-            <ul class="right hide-on-small-and-down">
-                <li><a href="/" class="waves-effect grey-text text-darken-4">Home</a></li>
-                <li><a href="#" class="waves-effect grey-text text-darken-4">About</a></li>
-                <li><a href="#" class="waves-effect grey-text text-darken-4">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        <%- include('template.ejs'); %>
 </header>
-
-<aside>
-    <!-- Sidenav for small and medium screens -->
-    <ul class="sidenav" id="mobile-menu">
-        <li><a class="subheader">TASK MANAGER</a></li>
-        <li><a href="/" class="waves-effect grey-text text-darken-4">Home</a></li>
-        <li><a href="/pages/about.html" class="waves-effect grey-text text-darken-4">About</a></li>
-        <li><div class="divider"></div></li>
-        <li><a href="/pages/contact.html" class="waves-effect grey-text text-darken-4"><i class="material-icons">mail_outline</i>Contact</a></li>
-    </ul>
-</aside>
 
 <main>
     <!-- Top Background Section -->
