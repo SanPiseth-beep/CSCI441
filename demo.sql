@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2024 at 05:11 AM
+-- Generation Time: Dec 03, 2024 at 06:39 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,45 +46,47 @@ CREATE TABLE `bikes` (
   `stationID` int(11) DEFAULT NULL,
   `model` varchar(50) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
-  `isAvailable` tinyint(1) NOT NULL
+  `isAvailable` tinyint(1) NOT NULL,
+  `createdAt` datetime DEFAULT current_timestamp(),
+  `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bikes`
 --
 
-INSERT INTO `bikes` (`bikeID`, `stationID`, `model`, `status`, `isAvailable`) VALUES
-(0, 0, 'model', 'status', 0),
-(1, 5, 'Model_D12', 'Maintenance', 0),
-(2, 6, 'Model_B7', 'Maintenance', 1),
-(3, 3, 'Model_C16', 'In Use', 0),
-(4, 1, 'Model_D55', 'Maintenance', 0),
-(5, 4, 'Model_B97', 'Maintenance', 0),
-(6, 9, 'Model_D78', 'Available', 0),
-(7, 8, 'Model_B53', 'Maintenance', 1),
-(8, 3, 'Model_B44', 'Maintenance', 0),
-(9, 9, 'Model_A54', 'In Use', 0),
-(10, 9, 'Model_B72', 'Available', 1),
-(11, 3, 'Model_B78', 'Maintenance', 0),
-(12, 1, 'Model_B87', 'Available', 0),
-(13, 4, 'Model_D39', 'In Use', 1),
-(14, 6, 'Model_C16', 'Available', 1),
-(15, 9, 'Model_D46', 'In Use', 0),
-(16, 4, 'Model_D100', 'Available', 0),
-(17, 8, 'Model_C8', 'Available', 0),
-(18, 5, 'Model_A32', 'In Use', 1),
-(19, 3, 'Model_D94', 'Maintenance', 0),
-(20, 6, 'Model_A99', 'Maintenance', 1),
-(21, 9, 'Model_C15', 'In Use', 1),
-(22, 4, 'Model_C67', 'Available', 0),
-(23, 1, 'Model_A15', 'Maintenance', 1),
-(24, 5, 'Model_D93', 'In Use', 1),
-(25, 3, 'Model_C64', 'In Use', 1),
-(26, 5, 'Model_B18', 'In Use', 1),
-(27, 10, 'Model_A41', 'In Use', 0),
-(28, 9, 'Model_C43', 'Maintenance', 0),
-(29, 9, 'Model_B68', 'Available', 1),
-(30, 4, 'Model_D76', 'In Use', 0);
+INSERT INTO `bikes` (`bikeID`, `stationID`, `model`, `status`, `isAvailable`, `createdAt`, `updatedAt`) VALUES
+(0, 0, 'model', 'status', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(1, 5, 'Model_D12', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(2, 6, 'Model_B7', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-03 05:36:35'),
+(3, 3, 'Model_C16', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(4, 1, 'Model_D55', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(5, 4, 'Model_B97', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(6, 9, 'Model_D78', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(7, 8, 'Model_B53', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(8, 3, 'Model_B44', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(9, 9, 'Model_A54', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(10, 9, 'Model_B72', 'Available', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(11, 3, 'Model_B78', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(12, 1, 'Model_B87', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(13, 4, 'Model_D39', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(14, 6, 'Model_C16', 'Available', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(15, 9, 'Model_D46', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(16, 4, 'Model_D100', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(17, 8, 'Model_C8', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(18, 5, 'Model_A32', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(19, 3, 'Model_D94', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(20, 6, 'Model_A99', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(21, 9, 'Model_C15', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(22, 4, 'Model_C67', 'Available', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(23, 1, 'Model_A15', 'Maintenance', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(24, 5, 'Model_D93', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(25, 3, 'Model_C64', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(26, 5, 'Model_B18', 'In Use', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(27, 10, 'Model_A41', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(28, 9, 'Model_C43', 'Maintenance', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(29, 9, 'Model_B68', 'Available', 1, '2024-12-02 22:15:21', '2024-12-02 22:15:21'),
+(30, 4, 'Model_D76', 'In Use', 0, '2024-12-02 22:15:21', '2024-12-02 22:15:21');
 
 -- --------------------------------------------------------
 
@@ -109,11 +111,25 @@ CREATE TABLE `feedback` (
 
 CREATE TABLE `payments` (
   `paymentID` int(11) NOT NULL,
-  `rentID` int(11) DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   `amount` decimal(10,2) DEFAULT NULL,
-  `payDate` date DEFAULT NULL
+  `payDate` date DEFAULT NULL,
+  `cardNumber` varchar(512) NOT NULL,
+  `cardExpiry` varchar(512) NOT NULL,
+  `cardCVC` varchar(128) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`paymentID`, `userID`, `amount`, `payDate`, `cardNumber`, `cardExpiry`, `cardCVC`, `createdAt`, `updatedAt`) VALUES
+(1, 1, 123.00, NULL, '5a4c5a5a6f6ad4563fbea4787f984f9b', '4af0346b99fa84ca06a22d20c3c15a1dad6878ca35f9ab3010dc9c098db22def', '650e1ad856248824a46b9982b6715c71', '2024-12-03 05:24:28', '2024-12-03 05:24:28'),
+(2, 1, 123.00, NULL, '4f0e774a95d8ecb454b0ed4884eb07c3', 'a14218c89294121e54491f7f645e13b3218be41857bd53193d9b2b0cb5951939', '502d8dcde5cc69ce941b774920a45060', '2024-12-03 05:31:43', '2024-12-03 05:31:43'),
+(3, 1, 123.00, NULL, '2014cfbdfe6dcb20601e48c2e6bf0bb9', 'e8fcb419d805af019f20fc6e55f425e81dfdc9775c979e59dc3a29e5769ed78b', 'b336a6f349f80827d360d424900b6965', '2024-12-03 05:32:32', '2024-12-03 05:32:32'),
+(4, 1, 123.00, NULL, 'ca749857510e52fd8c7237dd43afb635', 'a4dc97263257624f876efdb6ff331afbfa9bc6529a4b3fb005e340826fc430df', '780e3735cc5f312fe4a1ba07bd3fb307', '2024-12-03 05:36:35', '2024-12-03 05:36:35');
 
 -- --------------------------------------------------------
 
@@ -128,8 +144,19 @@ CREATE TABLE `rents` (
   `status` varchar(20) DEFAULT NULL,
   `startTime` datetime NOT NULL,
   `endTime` datetime DEFAULT NULL,
-  `cost` decimal(10,2) DEFAULT NULL
+  `cost` decimal(10,2) DEFAULT NULL,
+  `destination` varchar(255) DEFAULT NULL,
+  `phoneNumber` varchar(20) DEFAULT NULL,
+  `createdAt` datetime DEFAULT current_timestamp(),
+  `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rents`
+--
+
+INSERT INTO `rents` (`rentalID`, `userID`, `bikeID`, `status`, `startTime`, `endTime`, `cost`, `destination`, `phoneNumber`, `createdAt`, `updatedAt`) VALUES
+(0, 1, 2, 'rented', '2024-12-03 05:36:35', NULL, NULL, '1', 'home', '2024-12-03 05:36:35', '2024-12-03 05:36:35');
 
 --
 -- Triggers `rents`
@@ -170,7 +197,7 @@ CREATE TABLE `stations` (
 --
 
 INSERT INTO `stations` (`stationID`, `stationName`, `location`, `createdAt`, `updatedAt`) VALUES
-(0, 'stationName', 'location', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
+(0, 'station_0', 'location', '2024-12-02 21:56:01', '2024-12-02 22:22:41'),
 (1, 'Station_1', 'Location_8', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
 (2, 'Station_2', 'Location_12', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
 (3, 'Station_3', 'Location_33', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
@@ -181,19 +208,6 @@ INSERT INTO `stations` (`stationID`, `stationName`, `location`, `createdAt`, `up
 (8, 'Station_8', 'Location_8', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
 (9, 'Station_9', 'Location_8', '2024-12-02 21:56:01', '2024-12-02 21:56:01'),
 (10, 'Station_10', 'Location_45', '2024-12-02 21:56:01', '2024-12-02 21:56:01');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `transactions`
---
-
-CREATE TABLE `transactions` (
-  `transactionID` int(11) NOT NULL,
-  `paymentID` int(11) DEFAULT NULL,
-  `rentID` int(11) DEFAULT NULL,
-  `totalAmount` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -248,7 +262,6 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `payments`
   ADD PRIMARY KEY (`paymentID`),
-  ADD KEY `rentID` (`rentID`),
   ADD KEY `userID` (`userID`);
 
 --
@@ -266,18 +279,20 @@ ALTER TABLE `stations`
   ADD PRIMARY KEY (`stationID`);
 
 --
--- Indexes for table `transactions`
---
-ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`transactionID`),
-  ADD KEY `paymentID` (`paymentID`),
-  ADD KEY `rentID` (`rentID`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -301,7 +316,6 @@ ALTER TABLE `feedback`
 -- Constraints for table `payments`
 --
 ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`rentID`) REFERENCES `rents` (`rentalID`),
   ADD CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
 
 --
@@ -310,13 +324,6 @@ ALTER TABLE `payments`
 ALTER TABLE `rents`
   ADD CONSTRAINT `rents_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `rents_ibfk_2` FOREIGN KEY (`bikeID`) REFERENCES `bikes` (`bikeID`);
-
---
--- Constraints for table `transactions`
---
-ALTER TABLE `transactions`
-  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`paymentID`) REFERENCES `payments` (`paymentID`),
-  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`rentID`) REFERENCES `rents` (`rentalID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
