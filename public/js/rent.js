@@ -1,28 +1,46 @@
 // public/js/rent.js
 document.addEventListener('DOMContentLoaded', async function() {
-  const stationsDiv = document.getElementById('stations');
-  const bikesDiv = document.getElementById('bikes');
+  const stationsDropdown = document.getElementById('stations-dropdown');
   const rentForm = document.getElementById('rent-form');
   const rentBikeForm = document.getElementById('rent-bike-form');
 
-  const response = await fetch('/api/stations-and-bikes');
-  const { stations, bikes } = await response.json();
-
-  stations.forEach(station => {
-    const stationElement = document.createElement('div');
-    stationElement.textContent = `Station: ${station.name}`;
-    stationsDiv.appendChild(stationElement);
-  });
-
-  bikes.forEach(bike => {
-    const bikeElement = document.createElement('div');
-    bikeElement.textContent = `Bike ID: ${bike.id}`;
-    bikeElement.addEventListener('click', () => {
-      document.getElementById('bike-id').value = bike.id;
+  function checkSelections() {
+    if (stationsDropdown.value) {
       rentForm.style.display = 'block';
-    });
-    bikesDiv.appendChild(bikeElement);
-  });
+    } else {
+      rentForm.style.display = 'none';
+    }
+  }
+
+  try {
+    const response = await fetch('/api/stations-and-bikes');
+    const data = await response.json();
+
+    if (data.stations && data.bikes) {
+      data.stations.forEach(station => {
+        const option = document.createElement('option');
+        option.value = station.stationID;
+        option.textContent = station.stationName;
+
+        // Check if there are available bikes for this station
+        const availableBikes = data.bikes.filter(bike => bike.stationId === station.stationID && bike.isAvailable);
+        if (availableBikes.length === 0) {
+          option.disabled = true; // Grey out the station if no bikes are available
+        }
+
+        stationsDropdown.appendChild(option);
+      });
+
+      // Re-initialize the select element to update the options
+      M.FormSelect.init(stationsDropdown);
+
+      stationsDropdown.addEventListener('change', checkSelections);
+    } else {
+      console.error('Stations or bikes data is missing');
+    }
+  } catch (error) {
+    console.error('Error fetching stations and bikes:', error);
+  }
 
   rentBikeForm.addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -32,20 +50,26 @@ document.addEventListener('DOMContentLoaded', async function() {
     const cardExpiry = document.getElementById('card-expiry').value;
     const cardCVC = document.getElementById('card-cvc').value;
     const amount = document.getElementById('amount').value;
+    const destination = document.getElementById('destination').value;
+    const phoneNumber = document.getElementById('phone-number').value;
 
-    const response = await fetch('/api/rent-bike', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ bikeId, userId, cardNumber, cardExpiry, cardCVC, amount }),
-    });
+    try {
+      const response = await fetch('/api/rent-bike', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ bikeId, userId, cardNumber, cardExpiry, cardCVC, amount, destination, phoneNumber }),
+      });
 
-    const result = await response.json();
-    if (response.ok) {
-      alert('Bike rented successfully!');
-    } else {
-      alert(result.message);
+      const result = await response.json();
+      if (response.ok) {
+        alert('Bike rented successfully!');
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error('Error renting bike:', error);
     }
   });
 });

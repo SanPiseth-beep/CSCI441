@@ -15,45 +15,50 @@ exports.getAvailableStationsAndBikes = async (req, res) => {
       res.status(500).json({ message: 'An error occurred while fetching stations and bikes.' });
     }
   };
+
+  exports.rentBike = async (req, res) => {
+    const { bikeId, userId, cardNumber, cardExpiry, cardCVC, amount, destination, phoneNumber } = req.body;
   
-exports.rentBike = async (req, res) => {
-  const { bikeId, userId, cardNumber, cardExpiry, cardCVC, amount } = req.body;
-
-  try {
-    const availableBike = await Bike.findOne({ where: { id: bikeId, isAvailable: true } });
-
-    if (!availableBike) {
-      return res.status(400).json({ message: 'Bike is not available.' });
+    // Log the request data
+    console.log('Request data:', req.body);
+  
+    try {
+      const availableBike = await Bike.findOne({ where: { bikeId, isAvailable: true } });
+  
+      if (!availableBike) {
+        return res.status(400).json({ message: 'Bike is not available.' });
+      }
+  
+      const encryptedCardNumber = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardNumber, 'utf8', 'hex');
+      const encryptedCardExpiry = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardExpiry, 'utf8', 'hex');
+      const encryptedCardCVC = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardCVC, 'utf8', 'hex');
+  
+      const payment = await Payment.create({
+        userId,
+        cardNumber: encryptedCardNumber,
+        cardExpiry: encryptedCardExpiry,
+        cardCVC: encryptedCardCVC,
+        amount,
+      });
+  
+      const rent = await Rent.create({
+        userId,
+        bikeId,
+        status: 'rented',
+        startTime: new Date(),
+        destination,
+        phoneNumber,
+      });
+  
+      availableBike.isAvailable = false;
+      await availableBike.save();
+  
+      res.status(200).json({ message: 'Bike rented successfully!', rentId: rent.rentalId });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while processing your request.' });
     }
-
-    const encryptedCardNumber = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardNumber, 'utf8', 'hex');
-    const encryptedCardExpiry = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardExpiry, 'utf8', 'hex');
-    const encryptedCardCVC = crypto.createCipher('aes-256-cbc', process.env.ENCRYPTION_KEY).update(cardCVC, 'utf8', 'hex');
-
-    const payment = await Payment.create({
-      userId,
-      cardNumber: encryptedCardNumber,
-      cardExpiry: encryptedCardExpiry,
-      cardCVC: encryptedCardCVC,
-      amount,
-    });
-
-    const rent = await Rent.create({
-      userId,
-      bikeId,
-      status: 'rented',
-      startTime: new Date(),
-    });
-
-    availableBike.isAvailable = false;
-    await availableBike.save();
-
-    res.status(200).json({ message: 'Bike rented successfully!', rentId: rent.id });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'An error occurred while processing your request.' });
-  }
-};
+  };
 
 exports.returnBike = async (req, res) => {
   const { rentId, stationId } = req.body;

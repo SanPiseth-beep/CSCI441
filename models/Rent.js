@@ -30,6 +30,12 @@ const Rent = sequelize.define('Rent', {
   cost: {
     type: DataTypes.FLOAT,
   },
+  destination: {
+    type: DataTypes.STRING,
+  },
+  phoneNumber: {
+    type: DataTypes.STRING,
+  },
 });
 
 module.exports = Rent;

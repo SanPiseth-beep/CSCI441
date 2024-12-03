@@ -26,7 +26,6 @@ router.get('/testing', (req, res) => {
 });
 
 router.get('/api/stations-and-bikes', rentController.getAvailableStationsAndBikes);
-router.post('/api/rent-bike', rentController.rentBike);
-router.post('/api/return-bike', rentController.returnBike);
+router.post('/api/rent-bike', rentController.rentBike); // Ensure this line is correct
 
 module.exports = router;
