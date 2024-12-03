@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Bike = sequelize.define('Bike', {
-  id: {
+const Bike = sequelize.define('Bikes', {
+  bikeId: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -15,6 +15,7 @@ const Bike = sequelize.define('Bike', {
     type: DataTypes.BOOLEAN,
     defaultValue: true,
   },
+}, {
+    tableName: 'bikes', // Ensure the table name matches the actual table name in the database
 });
-
 module.exports = Bike;

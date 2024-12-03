@@ -6,16 +6,16 @@ const Rent = require('../models/Rent');
 const crypto = require('crypto');
 
 exports.getAvailableStationsAndBikes = async (req, res) => {
-  try {
-    const stations = await Station.findAll();
-    const bikes = await Bike.findAll({ where: { isAvailable: true } });
-    res.json({ stations, bikes });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'An error occurred while fetching stations and bikes.' });
-  }
-};
-
+    try {
+      const stations = await Station.findAll();
+      const bikes = await Bike.findAll({ where: { isAvailable: true } });
+      res.json({ stations, bikes });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while fetching stations and bikes.' });
+    }
+  };
+  
 exports.rentBike = async (req, res) => {
   const { bikeId, userId, cardNumber, cardExpiry, cardCVC, amount } = req.body;
 

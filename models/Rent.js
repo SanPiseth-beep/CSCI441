@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Rent = sequelize.define('Rent', {
-  id: {
+  rentalId: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
