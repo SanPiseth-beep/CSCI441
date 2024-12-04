@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <!-- Import our custom css-->
+    <link rel="stylesheet" href="../css/renting.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Success</title>
+</head>
+
+<body>
+    <header>
+        <%- include('template.ejs'); %>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col s12 center-align" style="margin-top: 3rem;">
+                <img class="responsive-img" src="../pic/confirmed.png" alt="confirmation graphic envelope"/>
+            </div>
+            <h4 class="col s12 center-align">Rent successful, enjoy your trip!</h4>
+            <div class="col s12 center-align" style="padding: 0 0;">
+                <a class="waves-light btn"
+                href="./homepage1"
+                style="background-color: #57CC99;
+                color: #243742;">
+                    <i class="material-icons left">arrow_back_ios</i>
+                    Back Home
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- materialize js -->
+    <script src="../js/materialize.min.js"></script>
+    <!-- UI js -->
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>

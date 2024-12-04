@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   
         const result = await response.json();
         if (response.ok) {
-          alert('Bike returned successfully!');
+          alert('Bike returned successfully! Thank you!');
+          // Redirect to another page
+          window.location.href = '/signedIn';
         } else {
           alert(result.message);
         }
