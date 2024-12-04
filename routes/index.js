@@ -17,8 +17,11 @@ router.get('/register', (req, res) => {
 
 router.get('/homepage', homeController.index);
 router.get('/renting1', homeController.renting1);
+router.get('/success', homeController.confirmation);
 
 router.get('/homepage1', homeController.homepage1);
+router.get('/signedIn', homeController.signedIn);
+router.get('/return', homeController.return);
 
 // Add the route to render the testing.ejs template
 router.get('/testing', (req, res) => {
@@ -29,6 +32,8 @@ router.get('/testing', (req, res) => {
 router.get('/testing1', (req, res) => {
     res.render('testing1');
 });
+
+
 
 router.get('/api/stations-and-bikes', rentController.getAvailableStationsAndBikes);
 

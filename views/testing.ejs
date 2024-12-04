@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rent a Bike</title>
   <link rel="stylesheet" href="/css/materialize.min.css">
+
+  <link rel="stylesheet" href="/css/renting.css">
 </head>
 <body>
   <header>
@@ -19,6 +21,27 @@
       </select>
       <label>Stations</label>
     </div>
+
+    <!-- testing station as card -->
+    <div class="card row" 
+     style="border-radius: 10px; 
+            margin-bottom: 0;
+            background-color: #243742;">
+    <div class="col s12 card-content white-text">
+        <span style="font-size:medium;">Stations</span>
+        <i class="material-icons right dropdown-icon" style="color: #57CC99" onclick="toggleDropdown()">arrow_drop_down</i>
+    </div>
+</div>
+
+<!-- Placeholder for dropdown -->
+<div id="stations-dropdown-container" class="row" style="display: none;">
+</div>
+<!-- Placeholder for selectedStation -->
+<div id="selected-station" style="margin-top: 10px; text-align: center; font-size: medium; color: #243742;">
+  No station selected
+</div>
+
+
     <div class="input-field">
       <input id="bike-id" type="text" placeholder="Enter Bike ID">
       <label for="bike-id">Bike ID</label>
