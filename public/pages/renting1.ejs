@@ -20,66 +20,224 @@
 
     <main class="container">
         <h3 class="nav" style="font-weight: 700;" >Rent a bike: </h3>
+        <div class="input-field">
+        
+            <!-- testing station as card -->
+            <div class="card row" 
+            style="border-radius: 10px; 
+                    margin-bottom: 0;
+                    background-color: #243742;">
+            <div class="col s12 card-content white-text">
+                <span style="font-size:medium;">Stations</span>
+                <i class="material-icons right dropdown-icon" style="color: #57CC99" onclick="toggleDropdown()">arrow_drop_down</i>
+            </div>
+        </div>
+        
+        <!-- Placeholder for dropdown -->
+        <div id="stations-dropdown-container" class="row" style="display: none;">
+        </div>
+        <!-- Placeholder for selectedStation -->
+        <div id="selected-station" style="margin-top: 10px; text-align: center; font-size: medium; color: #243742;">
+        No station selected
+        </div>
 
-        <div>
-            <form id="rent-form">
+        <div class="row">
+        <div class="input-field inputN col s12">
+            <input id="bike-id" class="noBorder validate" type="number" placeholder="Enter Bike ID"  required>
+            <!-- <label for="bike-id">Bike ID</label> -->
+        </div>
+        </div>
 
-                <div class="card row" 
-                style="border-top-left-radius: 10px; 
-                border-top-right-radius: 10px;
-                margin-bottom: 0;
-                background-color: #243742;">
-                        <div class=" col s12 card-content white-text">
-                            <span style="font-size:medium ;">Stations<span>
-                            <i class="material-icons right dropdown" style="color: #57CC99" onclick="stationDrop()">arrow_drop_down</i>
-                        </div>
-                </div>
-                <div id="stnDrop" class="row station-dropdown">
-                    <div class="card-panel col s12 valign-wrapper" style="margin: 0; height: 50px;">
-                        <a class="drop-content">
-                            <label><input type="radio" name="station" class="with-gap"  /> <span>Station 1</span></label>
-                        </a>
-                    </div>
-                    <div class="card-panel col s12 valign-wrapper" style="margin: 0; height: 50px; border-bottom-left-radius:10px; border-bottom-right-radius: 10px;">
-                        <a class=" drop-content ">
-                            <label><input type="radio" name="station" class="with-gap"  /> <span>Station 2</span></label>
-                        </a>
-                    </div>
 
-                </div>
-                <!-- Destination -->
+            <!-- div for rent-form display -->
+        <div id="rent-form" style="display: none;">
+            <form id="rent-bike-form">
                 <div class="destination row">
                     <div class="input-field inputN col s12">
                         <i class="material-icons prefix">location_on</i>
-                        <input placeholder="Enter Your Destination" id="destination" type="text" class="validate">
+                        <input placeholder="Enter Your Destination" 
+                        id="destination" 
+                        type="text" 
+                        class="noBorder"
+                        required>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="input-field inputN col s12">
+                        <input id="station-id" type="text" style="margin: 5px 0;" class="noBorder" placeholder="Station ID">
+                    </div>
+                    <div class="input-field inputN col s12">
+                        <input id="user-id" type="text" style="margin: 5px 0;" class="noBorder" placeholder="User ID">
+                    </div>
+                </div> -->
+                <div class="bikeID row">
+                    <!-- <div class="input-field inputN col s12" style="margin: 5px 0;">
+                        <input placeholder="Bike ID" type="text" class="noBorder" />
+                    </div> -->
+                    <div class="user input-field inputN col s12" style="margin: 5px 0;">
+                        <input placeholder="User ID" 
+                        id="user-id"
+                        type="number" 
+                        class="noBorder validate" 
+                        required />
+                    </div>
+                    <div class="duration input-field inputN col s12" style="margin: 5px 0;">
+                        <input placeholder="Duration(Hour)"
+                        id="duration"
+                        type="number" 
+                        class="noBorder validate" 
+                        required />
+                    </div>
+                    <div class="phone input-field inputN col s12" style="margin: 5px 0;">
+                        <input placeholder="Phone"
+                        id="phone-number"
+                        type="text"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        class="noBorder validate" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-panel center-align" style="background-color: #F3F9F4; color: #57CC99; border-radius: 4px;">
+                        <img src="../pic/Bicycle.png" alt="bicycle vector art"/>
+                        <div class="card-title">$2/Hour</div>
+                    </div>
+                </div>                 
+
+                <div class="row" id="contBtns1">
+                    <div class="col s12 center-align" style="padding: 0 0;">
+                        <a class="waves-effect waves-light btn"
+                        id="continueBtn"
+                        style="background-color: #57CC99; color: #243742; width: 100%;">
+                        Continue</a>
+                    </div>
+                </div>
+                <div class="row" id="contBtns1">
+                    <div class="col s12 center-align" style="padding: 0 0;">
+                        <a class="waves-effect waves-light btn" 
+                        href="/signedIn"
+                        style="background-color: #FFFFFF; color: #243742; width: 100%;">
+                        Cancel</a>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="input-field inputN col s12">
-                        <input id="station-id" type="text" class="validate" placeholder="Station ID">
+                <!-- Trip summary -->
+                <section id="rent-summary"  style="display: none;">
+                    <div class="row" >
+                        <div class="col s12 ">
+                            <div class="card" style="background-color: #F3F9F4; border-radius: 12px;">
+                                <div class="card-content">
+                                    <span class="card-title">Trip Summary</span>
+                                </div>
+                                <div class="card-image">
+                                    <img src="../pic/userinfo.png" alt="trip graphic art with a bike">
+                                </div>
+                                <!-- Placeholder for trip info -->
+                                <div class="card-content" id="rent-info-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-field inputN col s12">
-                        <input id="user-id" type="text" class="validate" placeholder="User ID">
+
+                    <!-- Wallet -->
+                    <div class="wallet">
+                        <div class="wallet_choice">
+                            <!-- Saved wallet -> not yet implemented -->
+                            <div class="saved row">
+                                <a class="choice col s12">
+                                    <label>
+                                        <input type="radio" name="method" class="with-gap" id="saved-wallet"/>
+                                        <span style="color: #243742;">Use your saved wallet</span>
+                                    </label>
+                                </a>
+                            </div>
+
+                            <div class="new row">
+                                <a class="choice col s12">
+                                    <label class=" valign-wrapper">
+                                        <input type="radio" name="method" class="with-gap" id="new-wallet"/>
+                                        <span style="color: #243742;" class="col s1">
+                                        </span>
+                                        <span class="card valign-wrapper col s11" style=" color:#243742; background-color: #F3F9F4; border-radius: 12px; padding: 10px">
+                                            <i class="material-icons prefix" style="color:#57CC99; padding-right: 10px;">credit_card</i>
+                                            <span>
+                                                <p>Credit or Debit card</p>
+                                                <p class="grey-text lighten-3">Visa or Master</p>
+                                            </span>
+                                        </span>
+                                    </label>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-field inputN col s12">
-                        <input id="card-number" type="text" class="validate" placeholder="Card Number">
+                    <!-- Add a new card -->
+                    <div id="payment-container" style=" display: none;">
+                        <h5 class="nav" style="font-weight: 400;">Payment Method</h5>
+                        <div id="cards-container" style="margin-top: 12px;">
+                            <div class="add-card row">
+                                <div class="input-field inputN col s12 noBorder">
+                                    <input placeholder="xxxx xxxx xxxx xxxx" 
+                                    id="card-number" 
+                                    type="tel" 
+                                    pattern="[0-9\s]{13,19}" 
+                                    maxlength="19"
+                                    required
+                                    class="validate" />
+                                    <label for="card-number">Card Number</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field inputN noBorder col s6">
+                                    <input id="card-expiry" 
+                                    type="text" 
+                                    placeholder="MM/YY"
+                                    pattern="^(0[1-9]|1[0-2])\/([2-9]{1}[0-9]{1})$"
+                                    required
+                                    class="validate" />
+                                    <label for="card-expiry">Card Expiry</label>
+                                </div>
+                                <div class="col s2"></div>
+                                <div class="input-field inputN noBorder col s4">
+                                    <input id="card-cvc" 
+                                    type="text" 
+                                    placeholder="xxx"
+                                    pattern="\d{3}"
+                                    required
+                                    class="validate" />
+                                    <label for="card-cvc">CVC</label>
+                                </div>
+                                <div class="col s12 input-field inputN noBorder">
+                                    <input id="card-holder" 
+                                    type="text" 
+                                    placeholder="Full Name"
+                                    required
+                                    class="validate" />
+                                    <label for="card-holder">Card Holder Name</label>
+                                </div>
+                            </div>                        
+                        </div>
+
+                        <!-- Pay Buttons -->
+                        <div class="row">
+                            <div class="col s12 center-align" style="padding: 0 0;">
+                                <button class="waves-effect waves-light btn" 
+                                style="background-color: #57CC99; color: #243742; width: 100%;"
+                                type="submit">
+                                Pay Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 center-align" style="padding: 0 0;">
+                                <a class="waves-effect waves-light btn" 
+                                href="/signedIn"
+                                style="background-color: #FFFFFF; color: #243742; width: 100%;">
+                                Cancel</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-field inputN col s12">
-                        <input id="card-expiry" type="text" class="validate" placeholder="Card Expiry">
-                    </div>
-                    <div class="input-field inputN col s12">
-                        <input id="card-cvc" type="text" class="validate" placeholder="Card CVC">
-                    </div>
-                    <div class="input-field inputN col s12">
-                        <input id="amount" type="text" class="validate" placeholder="Amount">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <a id="rent-button" class="waves-effect waves-light btn" style="background-color: #57CC99; color: #243742; width: 100%;">Rent Bike</a>
-                    </div>
-                </div>
+                </section>
             </form>
         </div>
     </main>
@@ -88,7 +246,7 @@
     <script src="../js/materialize.min.js"></script>
     <!-- UI js -->
     <script src="/js/ui.js"></script>
-    <!-- Renting js -->
-    <script src="/js/renting.js"></script>
+    <!-- Rent js -->
+    <script src="/js/rent.js"></script>
 </body>
 </html>
