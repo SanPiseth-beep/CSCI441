@@ -4,12 +4,10 @@ const bodyParser = require('body-parser');
 const sequelize = require('./config/database');
 const app = express();
 const port = 3000;
-const keycloak = require('./config/keycloak');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(keycloak.middleware());
 
 // View engine setup
 app.set('view engine', 'ejs');

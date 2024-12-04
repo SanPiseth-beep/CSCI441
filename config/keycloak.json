@@ -1,0 +1,11 @@
+{
+  "realm": "bikeshare",
+  "auth-server-url": "http://localhost:9080/",
+  "ssl-required": "external",
+  "resource": "user-account",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "**********"
+  },
+  "confidential-port": 0
+}
