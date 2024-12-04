@@ -91,7 +91,7 @@ To run the project using Docker, you will need to have Docker installed on your 
 
 To enable the Keycloak authentication, first install Keycloak-connect by running the following command:
 ```
-npm install keycloak-connect
+npm install keycloak-connect express-session keycloak-js
 ```
 You also need to make sure you have the following files and directories in the appropriate locations:
 - **keycloak.yml** in config/docker

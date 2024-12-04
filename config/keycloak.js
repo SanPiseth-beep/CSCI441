@@ -1,13 +1,26 @@
 const dotenv = require('dotenv').config();
-const Keycloak = require("keycloak-connect");
+const session = require('express-session');
+var Keycloak = require('keycloak-connect');
+const express = require("express");
 
-//Auth configuration
-const authConfig = {
-    "realm": process.env.KEYCLOAK_REALM,
-    "auth-server-url": `${process.env.KEYCLOAK_URL}`,
-    "ssl-required": "external",
-    "resource": process.env.KEYCLOAK_CLIENT,
-    "bearer-only": false
-}
+var memoryStore = new session.MemoryStore();
+const app = express();
 
-module.exports = new Keycloak({}, authConfig);
+app.use(session({
+    secret: process.env.KEYCLOAK_CLIENT_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: memoryStore
+}));
+
+var keycloak = new Keycloak({
+    store: memoryStore
+}, 'config/keycloak.json');
+
+app.use(keycloak.middleware({
+    logout: '/logout',
+    admin: '/'
+}));
+
+module.exports = keycloak;
+

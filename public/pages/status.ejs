@@ -8,10 +8,8 @@
     <!-- Import Custom CSS -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- Responsive Meta Tag -->
-     <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/landing.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <title>HomePage</title>
 
 </head>
 <body>
@@ -20,7 +18,8 @@
     <!-- Navbar for larger screens -->
     <nav class="z-depth-0">
         <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">Logo</a>
+            <a href="/" class="brand-logo"><img src="/pic/logo.png" style="width: 4rem"
+                ></a>
             <!-- Hamburger Menu for small screens -->
             <a href="#" data-target="mobile-menu" class="sidenav-trigger left hide-on-med-and-up black-text">
                 <i class="material-icons">menu</i>
@@ -31,7 +30,6 @@
                 <li><a href="#" class="waves-effect grey-text text-darken-4">About</a></li>
                 <li><a href="#" class="waves-effect grey-text text-darken-4">Contact</a></li>
             </ul>
-            <button id="logoutBtn" class="red-text right btn-danger"><i class="material-icons">logout</i></button>
         </div>
     </nav>
 </header>
@@ -39,7 +37,7 @@
 <aside>
     <!-- Sidenav for small and medium screens -->
     <ul class="sidenav" id="mobile-menu">
-        <li><a class="subheader">LOGO</a></li>
+        <li><a class="subheader">TASK MANAGER</a></li>
         <li><a href="/" class="waves-effect grey-text text-darken-4">Home</a></li>
         <li><a href="/pages/about.html" class="waves-effect grey-text text-darken-4">About</a></li>
         <li><div class="divider"></div></li>
@@ -48,35 +46,13 @@
 </aside>
 
 <main>
-    <!-- Top Background Section -->
-    <div class="top-background"></div>
+    <div class="container center" style="margin-top: 25%; width: 100%;">
+<!--        <i class="material-icons" style="color: #57CC99; font-size: 8rem;">check_circle</i>-->
+                <i class="material-icons" style="color: red; font-size: 8rem;">error</i>
 
-    <!-- Middle Text Section -->
-    <div class="section">
-        <h4 style="margin-left: 20px;">Bike Rental</h4>
-        <p style="margin-left: 20px;">Need a quick ride? Don’t have a car?</p>
+        <p id="errorMessage"></p>
+        <p style="font-size: 1.5rem">Return to <a href="/homepage1">Homepage</a></p>
     </div>
-
-    <!-- Center Buttons Section -->
-    <img src="../pic/usericon.png" alt="usericon" style="float:left;width:100px;height:70px;"/>
-
-    <div class="left-align section">
-        <p style="color: #808080;">Hello there, User</p>
-    </div>
-
-    <!-- Bottom Background Section -->
-    <div class="bottom-background left-align"> 
-    <h5 style= "margin-left :20px;">Trip Summary</h5>
-    <p style= "margin-left :20px;">Destination: XXXXXXXXXX</p>
-    <p style= "margin-left :20px;">Name: Joe</p>
-    <p style= "margin-left :20px;">Bike ID: 12344324</p>
-    <p style= "margin-left :20px;">Duration: # Hour</p>
-    <p style= "margin-left :20px;">Phone: +1 432-908-432</p>
-
-    </div>
-    <p class="center-align">
-        <a href="#!" id="pick-station-btn" class="btn-flat" style="color: #57CC99;">Pick your station →</a>
-    </p>
 </main>
 
 <!-- Materialize JS (optional) -->
@@ -84,7 +60,5 @@
 <!-- Materialize and UI JS (local) -->
 <script src="/js/materialize.min.js"></script>
 <script src="/js/ui.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/keycloak@1.2.0/keycloak.min.js"></script>
-<script src="/js/auth.js"></script>
 </body>
 </html>

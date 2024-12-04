@@ -7,18 +7,11 @@ const keycloak = require('../config/keycloak');
 
 router.get('/', homeController.index);
 
-router.get('/login', (req, res) => {
-    res.redirect(keycloak.loginUrl({ action: 'login' }, "http://localhost:3000/login"));
-});
-
-router.get('/register', (req, res) => {
-    res.redirect(keycloak.loginUrl({ action: 'register' }, "http://localhost:3000/login"));
-});
-
 router.get('/homepage', homeController.index);
 router.get('/renting1', homeController.renting1);
 
 router.get('/homepage1', homeController.homepage1);
+router.get('/status', homeController.status);
 
 // Add the route to render the testing.ejs template
 router.get('/testing', (req, res) => {
@@ -34,6 +27,5 @@ router.get('/api/stations-and-bikes', rentController.getAvailableStationsAndBike
 
 router.post('/api/rent-bike', rentController.rentBike);
 router.post('/api/return-bike', rentController.returnBike);
-
 
 module.exports = router;
