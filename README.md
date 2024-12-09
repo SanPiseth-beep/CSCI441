@@ -115,4 +115,19 @@ then import the demo.sql file to your database.
 
 To connect to the database, you will be given a .env file upon request. This file contains the database connection information.
 
+# Testing
 
+To run the test cases, you will need to have the following installed on your machine:
+
+- Jest
+
+To install Jest, run the following command:
+```
+npm install jest
+```
+
+To run the test cases, use the following command:
+```
+npm test
+```
+***Important:*** the database connection is needed. bikeId = 7 and stationId = 1 are needed to be available for this test to pass. 
