@@ -1,3 +1,7 @@
+// written by: Piseth San 
+// edited by: Nilin Lay, Ndeye Anta Mbaye, Angel Cervantes-Ramos, Damian Win
+// tested by: Angel Cervantes-Ramos, Nilin Lay, Ndeye Anta Mbaye, Damian Win
+
 exports.index = (req, res) => {
     res.render('index', {title: 'Homepage', message: 'Welcome to the homepage!'});
   };

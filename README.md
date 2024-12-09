@@ -116,5 +116,3 @@ then import the demo.sql file to your database.
 To connect to the database, you will be given a .env file upon request. This file contains the database connection information.
 
 
-
-

@@ -1,3 +1,7 @@
+// written by: Piseth,
+// edited by: Nilin Lay, Nilin Lay, Ndeye Anta Mbaye
+
+
 // server.js
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -29,3 +33,5 @@ app.listen(port, async () => {
   }
   console.log(`Server running on http://localhost:${port}`);
 });
+
+module.exports = app; // Export the app object
