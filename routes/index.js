@@ -7,7 +7,7 @@ const keycloak = require('../config/keycloak');
 
 router.get('/', homeController.index);
 
-router.get('/homepage', homeController.index);
+router.get('/homepage', keycloak.protect(), homeController.index);
 router.get('/renting1', homeController.renting1);
 router.get('/success', homeController.confirmation);
 
@@ -15,9 +15,12 @@ router.get('/homepage1', homeController.homepage1);
 
 router.get('/status', homeController.status);
 
-router.get('/signedIn', homeController.signedIn);
+router.get('/signedin', homeController.signedIn);
 router.get('/return', homeController.return);
 
+// router.get('/signedin', (req, res) => {
+//  res.render('signedIn')
+// });
 
 // Add the route to render the testing.ejs template
 router.get('/testing', (req, res) => {

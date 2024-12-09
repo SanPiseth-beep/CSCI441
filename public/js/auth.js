@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     try {
-        const authenticated = await keycloak.init({redirectUri: 'http://localhost:3000/homepage1',checkLoginIframe: false});
+        const authenticated = await keycloak.init({onLoad:'check-sso', redirectUri: 'http://localhost:3000/',checkLoginIframe: false});
         if (authenticated) {
             console.log('User is authenticated');
-            console.log(keycloak.loadUserProfile());
         } else {
             console.log('User is not authenticated');
         }
@@ -25,21 +24,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (loginButton) {
         loginButton.addEventListener("click", function () {
-            console.log('Login button clicked');
-            keycloak.login();
+            keycloak.login({redirectUri:'http://localhost:3000/signedin'});
         })
     }
 
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
-            console.log('Logout button clicked');
             keycloak.logout({redirectUri: 'http://localhost:3000/'});
         })
     }
 
     if (registerBtn) {
         registerBtn.addEventListener("click", function () {
-            console.log('Register button clicked');
             keycloak.register();
         })
     }
