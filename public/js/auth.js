@@ -1,3 +1,4 @@
+// written by: Ndeye Anta Mbaye
 
 document.addEventListener("DOMContentLoaded", async function () {
     const loginButton = document.getElementById('loginBtn');

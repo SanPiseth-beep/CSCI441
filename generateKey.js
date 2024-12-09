@@ -1,3 +1,5 @@
+// written by: Piseth San,
+
 // generateKey.js
 const crypto = require('crypto');
 

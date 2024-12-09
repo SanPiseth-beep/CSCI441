@@ -1,3 +1,5 @@
+// written by: Damian Win
+// edited by: Angel Cervantes-Ramos
 document.addEventListener('DOMContentLoaded', function() {
     const signUpButton = document.getElementById('signup-button');
     const loginButton = document.getElementById('login-button');

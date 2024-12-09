@@ -1,3 +1,6 @@
+// written by: Piseth
+// edited by: Nilin Lay, Ndeye Anta Mbaye, Angel Cervantes-Ramos, Damian Win
+
 // routes/index.js
 const express = require('express');
 const router = express.Router();

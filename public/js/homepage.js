@@ -1,3 +1,5 @@
+// written by: Damian Win
+// edited by: Angel Cervantes-Ramos
 document.addEventListener('DOMContentLoaded', function() {
     const stationButton = document.getElementById('station-button');
 

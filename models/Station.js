@@ -1,3 +1,4 @@
+// written by: Piseth San 
 // models/Station.js
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');

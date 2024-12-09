@@ -1,3 +1,6 @@
+// written by: Piseth San
+// edited by: Nilin Lay
+
 // public/js/rent.js
 document.addEventListener('DOMContentLoaded', async function() {
   const stationsDropdown = document.getElementById('stations-dropdown-container');

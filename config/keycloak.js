@@ -1,3 +1,5 @@
+// written by: Ndeye Anta Mbaye
+
 const dotenv = require('dotenv').config();
 const session = require('express-session');
 var Keycloak = require('keycloak-connect');

@@ -1,3 +1,5 @@
+# written by: Piseth San, Ndeye Anta Mbaye
+
 # Ignore package-lock.json
 package-lock.json
 .env

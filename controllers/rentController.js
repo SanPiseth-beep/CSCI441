@@ -1,3 +1,7 @@
+// written by: Piseth San 
+// edited by: Nilin Lay, Angel Cervantes-Ramos, Damian Win
+// tested by: Angel Cervantes-Ramos, Nilin Lay, Damian Win
+
 // controllers/rentController.js
 const crypto = require('crypto');
 const Bike = require('../models/Bike');
